@@ -14,12 +14,16 @@ class Router {
         );
       case RouteName.maleDetailPage:
         return MaterialPageRoute(
-          builder: (_) => MaleDetailPage(),
+          builder: (_) => MaleDetailPage(
+            isFirstPage: settings.arguments,
+          ),
           settings: settings,
         );
       case RouteName.femaleDetailPage:
         return MaterialPageRoute(
-          builder: (_) => FemaleDetailPage(),
+          builder: (_) => FemaleDetailPage(
+            isFirstPage: settings.arguments,
+          ),
           settings: settings,
         );
       case RouteName.resultPage:

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:friendship_love_hate/util/color_utils.dart';
 
 class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
   MyAppBar({

@@ -43,10 +43,10 @@ class MyFlatButton extends StatelessWidget {
           child: Center(
             child: child ??
                 Text(
-                  buttonText ?? 'Flat Button',
+                  buttonText?.toUpperCase() ?? 'FLAT BUTTON',
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
-                    fontSize: FontSizeUtils.medium,
+                    fontSize: FontSizeUtils.button,
                   ),
                   textAlign: TextAlign.center,
                 ),

@@ -30,15 +30,21 @@ class _HomePageState extends State<HomePage> {
           MyElevatedButton(
             buttonText: 'Male',
             onPressed: () {
-              print('helo world');
-              Navigator.pushNamed(context, RouteName.maleDetailPage);
+              Navigator.pushNamed(
+                context,
+                RouteName.maleDetailPage,
+                arguments: true,
+              );
             },
           ),
           MyElevatedButton(
             buttonText: 'Female',
             onPressed: () {
-              print('helo world');
-              Navigator.pushNamed(context, RouteName.femaleDetailPage);
+              Navigator.pushNamed(
+                context,
+                RouteName.femaleDetailPage,
+                arguments: true,
+              );
             },
           ),
         ],

@@ -29,10 +29,10 @@ class MyElevatedButton extends StatelessWidget {
           child: Center(
             child: child ??
                 Text(
-                  buttonText ?? 'Elevated Button',
+                  buttonText?.toUpperCase() ?? 'ELEVATED BUTTON',
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
-                    fontSize: FontSizeUtils.medium,
+                    fontSize: FontSizeUtils.button,
                   ),
                   textAlign: TextAlign.center,
                 ),
