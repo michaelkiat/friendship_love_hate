@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:friendship_love_hate/core/router/route_name.dart';
+import 'package:friendship_love_hate/util/color_utils.dart';
+import 'package:friendship_love_hate/widget/my_app_bar.dart';
 import 'package:friendship_love_hate/widget/my_elevated_button.dart';
 import 'package:friendship_love_hate/widget/my_header.dart';
 import 'package:friendship_love_hate/widget/my_page.dart';
@@ -13,7 +15,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MyPage(
+      appBar: MyAppBar(
+        backgroundColor: ColorUtils.lightTeal,
+      ),
+      backgroundColor: ColorUtils.lightTeal,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyHeader(

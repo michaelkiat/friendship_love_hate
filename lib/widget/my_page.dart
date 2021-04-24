@@ -17,7 +17,7 @@ class MyPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: appBar,
-        backgroundColor: backgroundColor ?? Colors.pink[50],
+        backgroundColor: backgroundColor,
         body: body,
         bottomNavigationBar: bottomNavigationBar,
       ),
