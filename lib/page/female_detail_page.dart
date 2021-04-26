@@ -6,6 +6,7 @@ import 'package:friendship_love_hate/core/router/route_name.dart';
 import 'package:friendship_love_hate/model/form_model.dart';
 import 'package:friendship_love_hate/model/name_description_model.dart';
 import 'package:friendship_love_hate/util/color_utils.dart';
+import 'package:friendship_love_hate/util/dimension_utils.dart';
 import 'package:friendship_love_hate/util/reg_utils.dart';
 import 'package:friendship_love_hate/widget/my_app_bar.dart';
 import 'package:friendship_love_hate/widget/my_elevated_button.dart';
@@ -13,6 +14,7 @@ import 'package:friendship_love_hate/widget/my_header.dart';
 import 'package:friendship_love_hate/widget/my_page.dart';
 import 'package:friendship_love_hate/widget/my_text.dart';
 import 'package:friendship_love_hate/widget/my_text_field.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class FemaleDetailPage extends StatefulWidget {
@@ -113,31 +115,44 @@ class _FemaleDetailPageState extends State<FemaleDetailPage> {
         backgroundColor: ColorUtils.lightPink,
       ),
       backgroundColor: ColorUtils.lightPink,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          MyHeader(
-            title: pageTitle,
-            textAlign: TextAlign.left,
-            headerType: HeaderType.header2,
-          ),
-          MyText(welcomeText),
-          MyTextField(
-            hintText: 'Name',
-            controller: nameController,
-            onChanged: (name) {
-              generateNameDescription();
-            },
-            onPressClear: () {
-              setState(() {
-                nameController.clear();
-                _displayNameDescription = '';
-              });
-            },
-          ),
-          MyText(
-            _displayNameDescription,
-            textColor: _isError ? Colors.red : Colors.black,
+      body: CustomScrollView(
+        slivers: [
+          SliverList(
+            delegate: SliverChildListDelegate([
+              Lottie.asset(
+                'assets/lottie/female.json',
+                height: 250,
+              ),
+              MyHeader(
+                title: pageTitle,
+                textAlign: TextAlign.left,
+                headerType: HeaderType.header2,
+                padding: EdgeInsets.fromLTRB(
+                  DimensionUtils.dp_16,
+                  DimensionUtils.dp_16,
+                  DimensionUtils.dp_16,
+                  DimensionUtils.dp_16,
+                ),
+              ),
+              MyText(welcomeText),
+              MyTextField(
+                hintText: 'Name',
+                controller: nameController,
+                onChanged: (name) {
+                  generateNameDescription();
+                },
+                onPressClear: () {
+                  setState(() {
+                    nameController.clear();
+                    _displayNameDescription = '';
+                  });
+                },
+              ),
+              MyText(
+                _displayNameDescription,
+                textColor: _isError ? Colors.red : Colors.black,
+              ),
+            ]),
           ),
         ],
       ),

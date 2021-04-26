@@ -1,4 +1,5 @@
 class DimensionUtils {
+  static const double dp_0 = 0.0;
   static const double dp_4 = 4.0;
   static const double dp_8 = 8.0;
   static const double dp_12 = 12.0;

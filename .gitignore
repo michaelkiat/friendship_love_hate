@@ -706,3 +706,17 @@ build/app/outputs/logs/manifest-merger-debug-report.txt
 build/app/tmp/kotlin-classes/debug/com/example/friendship_love_hate/MainActivity.class
 build/app/tmp/kotlin-classes/debug/META-INF/app_debug.kotlin_module
 build/app/tmp/packLibsflutterBuildDebug/MANIFEST.MF
+build/app/intermediates/flutter/debug/flutter_assets/assets/lottie/female.json
+build/app/intermediates/flutter/debug/flutter_assets/assets/lottie/friend.json
+build/app/intermediates/flutter/debug/flutter_assets/assets/lottie/hate.json
+build/app/intermediates/flutter/debug/flutter_assets/assets/lottie/love.json
+build/app/intermediates/flutter/debug/flutter_assets/assets/lottie/male.json
+build/app/intermediates/incremental/debug-mergeJavaRes/zip-cache/0xrCCZwFPrigADadnoXE5i4e3RM=
+build/app/intermediates/incremental/debug-mergeNativeLibs/zip-cache/0xrCCZwFPrigADadnoXE5i4e3RM=
+build/app/intermediates/merged_assets/debug/out/flutter_assets/assets/lottie/female.json
+build/app/intermediates/merged_assets/debug/out/flutter_assets/assets/lottie/friend.json
+build/app/intermediates/merged_assets/debug/out/flutter_assets/assets/lottie/hate.json
+build/app/intermediates/merged_assets/debug/out/flutter_assets/assets/lottie/love.json
+build/app/intermediates/merged_assets/debug/out/flutter_assets/assets/lottie/male.json
+build/app/intermediates/merged_native_libs/debug/out/lib/arm64-v8a/libflutter.so
+build/app/intermediates/stripped_native_libs/debug/out/lib/arm64-v8a/libflutter.so
