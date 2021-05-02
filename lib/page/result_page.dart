@@ -3,8 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:friendship_love_hate/core/router/route_name.dart';
 import 'package:friendship_love_hate/model/form_model.dart';
+import 'package:friendship_love_hate/model/result_model.dart';
 import 'package:friendship_love_hate/util/color_utils.dart';
 import 'package:friendship_love_hate/util/dimension_utils.dart';
+import 'package:friendship_love_hate/widget/my_app_bar.dart';
 import 'package:friendship_love_hate/widget/my_elevated_button.dart';
 import 'package:friendship_love_hate/widget/my_header.dart';
 import 'package:friendship_love_hate/widget/my_page.dart';
@@ -30,7 +32,7 @@ class _ResultPageState extends State<ResultPage> {
           'assets/lottie/friend.json',
         ),
         MyHeader(
-          title: 'FRIENDS',
+          title: 'Friends',
           padding: EdgeInsets.fromLTRB(
             DimensionUtils.dp_32,
             DimensionUtils.dp_0,
@@ -58,7 +60,7 @@ class _ResultPageState extends State<ResultPage> {
           'assets/lottie/love.json',
         ),
         MyHeader(
-          title: 'LOVERS',
+          title: 'Lovers',
           padding: EdgeInsets.fromLTRB(
             DimensionUtils.dp_32,
             DimensionUtils.dp_0,
@@ -86,16 +88,16 @@ class _ResultPageState extends State<ResultPage> {
           'assets/lottie/hate.json',
         ),
         MyHeader(
-          title: 'WARZONE',
+          title: 'Hate',
           padding: EdgeInsets.fromLTRB(
             DimensionUtils.dp_32,
-            DimensionUtils.dp_32,
+            DimensionUtils.dp_24,
             DimensionUtils.dp_32,
             DimensionUtils.dp_0,
           ),
         ),
         MyText(
-          'Peace, friendship, and love have never been an option for the both of you. Hate and discrimination will always be practiced between you both, just like how the world is fighting and discriminating the poor COVID-19 virus.',
+          'Peace, friendship, and love have never been an option for the both of you. Hate, discrimination and non-stop quarreling will always be practiced between you both.',
           padding: EdgeInsets.fromLTRB(
             DimensionUtils.dp_32,
             DimensionUtils.dp_16,
@@ -108,33 +110,47 @@ class _ResultPageState extends State<ResultPage> {
   }
 
   SliverList displayResultRandomly() {
-    Random random = Random();
-    int randomInt = random.nextInt(3);
-    if (randomInt == 0) return renderFriendSliver();
-    if (randomInt == 1) return renderLoveSliver();
+    Result result = ResultModel.calculateResult(
+      maleName: maleName,
+      femaleName: femaleName,
+    );
+    if (result == Result.friendship) return renderFriendSliver();
+    if (result == Result.love) return renderLoveSliver();
     return renderHateSliver();
+  }
+
+  void navigateToMainPage() {
+    context.read<FormModel>().clearData();
+    Navigator.popUntil(
+      context,
+      ModalRoute.withName(RouteName.homePage),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => false,
+      onWillPop: () async {
+        navigateToMainPage();
+        return true;
+      },
       child: MyPage(
-        backgroundColor: ColorUtils.lightTeal,
+        appBar: MyAppBar(
+          backgroundColor: ResultModel.backgroundColor(
+            maleName: maleName,
+            femaleName: femaleName,
+          ),
+          appBarActionType: AppBarActionType.close,
+          onPressed: navigateToMainPage,
+        ),
+        backgroundColor: ResultModel.backgroundColor(
+          maleName: maleName,
+          femaleName: femaleName,
+        ),
         body: CustomScrollView(
           slivers: [
             displayResultRandomly(),
           ],
-        ),
-        bottomNavigationBar: MyElevatedButton(
-          buttonText: 'GOT IT',
-          onPressed: () {
-            context.read<FormModel>().clearData();
-            Navigator.popUntil(
-              context,
-              ModalRoute.withName(RouteName.homePage),
-            );
-          },
         ),
       ),
     );

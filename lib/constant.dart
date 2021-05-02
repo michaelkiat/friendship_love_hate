@@ -1,3 +1,7 @@
+class Alphabets {
+  static List<String> vowelList = ['a', 'e', 'i', 'o', 'u'];
+}
+
 class Gender {
   static const String MALE = 'MALE';
   static const String FEMALE = 'FEMALE';

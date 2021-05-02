@@ -9,12 +9,16 @@ class MyElevatedButton extends StatelessWidget {
     this.child,
     this.padding,
     this.decoration,
+    this.backgroundColor = Colors.blue,
+    this.foregroundColor = Colors.white,
   });
   final Function() onPressed;
   final String buttonText;
   final Widget child;
   final EdgeInsets padding;
   final Decoration decoration;
+  final Color backgroundColor;
+  final Color foregroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +41,10 @@ class MyElevatedButton extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
           ),
+        ),
+        style: ElevatedButton.styleFrom(
+          primary: backgroundColor,
+          onPrimary: foregroundColor,
         ),
       ),
     );

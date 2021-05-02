@@ -5,6 +5,7 @@ import 'package:friendship_love_hate/constant.dart';
 import 'package:friendship_love_hate/core/router/route_name.dart';
 import 'package:friendship_love_hate/model/form_model.dart';
 import 'package:friendship_love_hate/model/name_description_model.dart';
+import 'package:friendship_love_hate/util/color_utils.dart';
 import 'package:friendship_love_hate/util/dimension_utils.dart';
 import 'package:friendship_love_hate/util/reg_utils.dart';
 import 'package:friendship_love_hate/widget/my_app_bar.dart';
@@ -158,6 +159,7 @@ class _MaleDetailPageState extends State<MaleDetailPage> {
       bottomNavigationBar: MyElevatedButton(
         buttonText: buttonText,
         onPressed: () => onPressButton(context),
+        backgroundColor: ColorUtils.blue,
       ),
     );
   }

@@ -159,6 +159,7 @@ class _FemaleDetailPageState extends State<FemaleDetailPage> {
       bottomNavigationBar: MyElevatedButton(
         buttonText: buttonText,
         onPressed: () => onPressButton(context),
+        backgroundColor: ColorUtils.pink,
       ),
     );
   }
