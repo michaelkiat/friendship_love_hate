@@ -3,9 +3,8 @@ import 'package:friendship_love_hate/core/router/route_name.dart';
 import 'package:friendship_love_hate/model/form_model.dart';
 import 'package:friendship_love_hate/util/color_utils.dart';
 import 'package:friendship_love_hate/util/dimension_utils.dart';
+import 'package:friendship_love_hate/util/font_size_utils.dart';
 import 'package:friendship_love_hate/widget/my_app_bar.dart';
-import 'package:friendship_love_hate/widget/my_elevated_button.dart';
-import 'package:friendship_love_hate/widget/my_header.dart';
 import 'package:friendship_love_hate/widget/my_page.dart';
 import 'package:friendship_love_hate/widget/my_text.dart';
 import 'package:lottie/lottie.dart';
@@ -82,6 +81,16 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget renderAppDetails() {
+    return MyText(
+      'OfficialRubbishTech • v1.0.0',
+      textStyle: TextStyle(
+        fontSize: FontSizeUtils.small,
+      ),
+      textAlign: TextAlign.center,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Provider(
@@ -89,19 +98,25 @@ class _HomePageState extends State<HomePage> {
       builder: (context, widget) {
         return MyPage(
           appBar: MyAppBar(
-            backgroundColor: ColorUtils.lightTeal,
+            backgroundColor: ColorUtils.logoBackground,
           ),
-          backgroundColor: ColorUtils.lightTeal,
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              MyHeader(
-                title: "Friendship, Love or Hate",
-                textAlign: TextAlign.center,
-              ),
-              renderGenderSelectionCard(),
-            ],
+          backgroundColor: ColorUtils.logoBackground,
+          body: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Image(
+                  image: AssetImage('assets/logo/logo.png'),
+                  width: 300.0,
+                  height: 300.0,
+                ),
+                renderGenderSelectionCard(),
+              ],
+            ),
+          ),
+          bottomNavigationBar: Container(
+            child: renderAppDetails(),
           ),
         );
       },

@@ -8,11 +8,13 @@ class MyText extends StatelessWidget {
     this.textStyle,
     this.textColor,
     this.padding,
+    this.textAlign,
   });
   final String text;
   final TextStyle textStyle;
   final Color textColor;
   final EdgeInsets padding;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,7 @@ class MyText extends StatelessWidget {
               fontSize: FontSizeUtils.mediumSmall,
               color: textColor ?? Colors.black,
             ),
+            textAlign: textAlign,
       ),
     );
   }

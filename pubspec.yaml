@@ -29,6 +29,7 @@ flutter:
     - assets/lottie/hate.json
     - assets/lottie/male.json
     - assets/lottie/female.json
+    - assets/logo/logo.png
 
   # fonts:
   #   - family: Schyler
